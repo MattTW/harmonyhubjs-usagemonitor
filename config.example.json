@@ -1,0 +1,9 @@
+{
+	"monitoredHub": "<your harmony hub ip>",
+	"maxMinutes": 240,
+	"notifyUsers": ["<imessage phone number or email>","<imessage phone number or email 2"],
+	"warnPercentages": [75,90],
+	"mongoDBURL": "mongodb://localhost/harmonymonitor",
+	"logLevel": "debug",
+	"webListenPort": 3000
+}
