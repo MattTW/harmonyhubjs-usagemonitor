@@ -55,7 +55,7 @@ function sendIMessage(theMessage) {
 				log.info("Message Sent: " + theMessage);
 				log.debug("Return data from applescript call was: " + rtn);
 			}
-		});		
+		});
 	});
 
 }
@@ -80,7 +80,7 @@ function getHubActivities() {
 			log.trace('Activity init complete: ' + JSON.stringify(myActivities));
 			harmonyClient.end();
 			return myActivities;
-		});	
+		});
 	});
 }
 
@@ -117,7 +117,7 @@ function updateActivityData(anActivityData) {
 			//send warnings if hit
 			warnPcts.forEach(function(currentWarnPct) {
 				if(Math.floor(maxMinutes * (currentWarnPct / 100)) == totalActiveMinutes) {
-					sendIMessage(sprintf("Warning: system usage is at %i.  Current Minutes: %i   Maximum Minutes: %i",currentWarnPct,totalActiveMinutes,maxMinutes));
+					sendIMessage(sprintf("Warning: system usage is at %i%%.  Current Minutes: %i   Maximum Minutes: %i",currentWarnPct,totalActiveMinutes,maxMinutes));
 				}
 			});
 			//if we are at or over max and system is not in off state, turn it off now and send message
@@ -159,12 +159,12 @@ function monitorHubActivity() {
 		updateActivityData(activityData);
 	});
 }
-			
+
 
 
 db.once('open', function() {
 	//once mongodb connection establislhed, check for activity every minute
-	new CronJob('0 * * * * *', monitorHubActivity, null, true);                       
+	new CronJob('0 * * * * *', monitorHubActivity, null, true);
 });
 
 
